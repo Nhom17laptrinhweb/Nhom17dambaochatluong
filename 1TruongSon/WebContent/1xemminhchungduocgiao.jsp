@@ -13,48 +13,10 @@
   <!-- Customize -->
   <link rel="stylesheet" href="resource/css/style.css">
 
-  <!-- cay -->
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>jquery tree menu css slide up down</title>
-        <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
-        <script type="text/javascript">
-        $(function(){
-        $('#tree-menu > li > a').click(function(){
-         var next = $(this).next();
-          if(next.is(':visible')){
-            next.slideUp(300);
-             $(this).find('span').jsp('+');
-              }else{
-              next.slideDown(300);
-             $(this).find('span').jsp('-');
-           }
-          });
-          });
-          </script>
-
-          <style type="text/css">
-          body { font:12px Tahoma, Geneva, sans-serif; }
-        #div-head-tree-menu { width:230px; padding:10px 10px 10px 10px; text-align:center; background-color:pink; border:1px solid #ccc; border-bottom:5px solid #a8bfd7; }
-        #div-tree-menu { padding-left:20px; padding-bottom:10px; width:230px; background-color:#FFF; overflow:hidden; border:1px solid #aaa; border-top:1px solid #FFF;   }
-
-        #tree-menu {  width:200px; float:left; margin:0; padding:0; margin-top:-1px;}
-        #tree-menu ul { margin:0; padding:8px;  }
-        #tree-menu li { list-style:none;  padding:8px; margin:0; }
-
-        #menu-lv1 { display:none; }
-        #menu-lv2 { display:none; text-decoration: none; color: green; background-color:pink; }
-        #menu-lv3 { display:none; }
-        #menu-lv4 { display:none; background-color:pink; }
-
-        a:link { text-decoration: none; color: black; }
-        a:visited { text-decoration: none; color: brown; }
-        a:hover { text-decoration: none; color: black; }
-        a:active { text-decoration: none; color: yellow; }
-        .txt-red { color:#F00 }
-        </style>
-<!-- ket thuc cay -->
-
-
+   <link rel="stylesheet" href="dist/themes/default/style.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+  <script src="dist/jstree.min.js"></script>
+  <script src="dist/libs/jquery.js"></script>
 
 </head>
 <div class="container">
@@ -106,45 +68,62 @@
   
 <div class="row">
      <div class="col-md-4 ">
-          <!-- cay -->
-      <div id="div-head-tree-menu">: <a href="">Minh Chứng Được Giao</a> :</div>
-      <div id="div-tree-menu">
-      <ul id="tree-menu">
-      <li><a href="#"><span>+</span>Minh Chứng máy tính</a>
-           <ul id="menu-lv1">
-            <li>&#8250; <a href="1doantruong.jsp">Tên mục minh chứng</a></li>
-            <li>&#8250; <a href="1doantruong.jsp">Mô tả mục minh chứng</a></li>
-            <li>&#8250; <a href="1doantruong.jsp">File minh chứng </a></li>
-           
-         </ul>
-     </li>
-    <li><a href="#"><span>+</span>Minh Chứng phòng học</a>
-         <ul id="menu-lv2">
-            <li>&#8250; <a href="1khutuhoc.jsp">Tên mục minh chứng</a></li>
-            <li>&#8250; <a href="1khutuhoc.jsp">Mô tả mục minh chứng</a></li>
-            <li>&#8250; <a href="1khutuhoc.jsp">File minh chứng</a></li>
-       
-         </ul>
-     </li>
-       <li><a href="#"><span>+</span>Minh Chứng thư viện</a>
-        <ul id="menu-lv3">
-            <li>&#8250; <a href="1sanbongro.jsp">Tên mục minh chứng</a></li>
-            <li>&#8250; <a href="1sanbongro.jsp">Mô tả mục minh chứng</a></li>
-            <li>&#8250; <a href="1sanbongro.jsp">File minh chứng</a></li>
-      
-         </ul>
-        </li>
-     <li><a href="#"><span>+</span>Minh Chứng 4</a>
-      <ul id="menu-lv4">
-            <li>&#8250; <a href="1maylocnuoc.jsp">Tên mục minh chứng</a></li>
-            <li>&#8250; <a href="1maylocnuoc.jsp">Mô tả mục minh chứng</a></li>
-            <li>&#8250; <a href="1maylocnuoc.jsp">File minh chứng</a></li>
-       
+         
+           <div id="jstree">
+    <!-- in this example the tree is populated from inline HTML -->
+    <ul>
+      <li>Minh Chứng máy tính
+        <ul>
+          <li><a href="1doantruong.jsp">Tên mục minh chứng</a></li>
+          <li><a href="1doantruong.jsp">Mô tả mục minh chứng</a></li>
+          <li><a href="1doantruong.jsp">File minh chứng </a></li>
         </ul>
-     </li>
+      </li>
+
+      <li>Minh Chứng phòng học
+        <ul>
+          <li><a href="1khutuhoc.jsp">Tên mục minh chứng</a></li>
+          <li><a href="1khutuhoc.jsp">Mô tả mục minh chứng</a></li>
+          <li><a href="1khutuhoc.jsp">File minh chứng</a></li>
+        </ul>
+      </li>
+
+      <li data-jstree='{"disabled":true}'>Minh Chứng thư viện
+        <ul>
+           <li data-jstree='{"disabled":true}'><a href="1sanbongro.jsp">Tên mục minh chứng</a></li>
+            <li data-jstree='{"disabled":true}'><a href="1sanbongro.jsp">Mô tả mục minh chứng</a></li>
+            <li data-jstree='{"disabled":true}'><a href="1sanbongro.jsp">File minh chứng</a></li>
+        </ul>
+      </li>
+
+      <li data-jstree='{"disabled":true}'>Minh Chứng 4
+        <ul>
+          <li data-jstree='{"disabled":true}'> <a href="1doantruong.jsp">Tên mục minh chứng</a></li>
+          <li data-jstree='{"disabled":true}'> <a href="1doantruong.jsp">Mô tả mục minh chứng</a></li>
+          <li data-jstree='{"disabled":true}'> <a href="1doantruong.jsp">File minh chứng </a></li>
+        </ul>
+      </li>
+     
     </ul>
-    </div>
-    <!-- ket thuc cay -->
+  </div>
+  </div>
+
+    <script>
+  $(function () {
+    // 6 create an instance when the DOM is ready
+    $('#jstree').jstree();
+    // 7 bind to events triggered on the tree
+    $('#jstree').on("changed.jstree", function (e, data) {
+      console.log(data.selected);
+    });
+    // 8 interact with the tree - either way is OK
+    $('button').on('click', function () {
+      $('#jstree').jstree(true).select_node('child_node_1');
+      $('#jstree').jstree('select_node', 'child_node_1');
+      $.jstree.reference('#jstree').select_node('child_node_1');
+    });
+  });
+  </script>
 
 
      </div>
@@ -182,26 +161,16 @@
                         <td>Minh chứng thư viện</td>
                         <td>Tiêu Chuẩn 3</td>
                         <td><a href="1sanbongro.jsp">video</a></td>
-                   
-
-                        
+                 
                         </tr>
                     <tr>
                         <td>....</td>
                     </tr>
                 </tbody>
             </table>
-
-      
-     
   </div>
 
-  
-
-
-
-
-
+ 
   <div id="footer">
       <p>
         Ban kiểm định
