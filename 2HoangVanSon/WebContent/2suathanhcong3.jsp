@@ -10,6 +10,26 @@
 	<script src="resource/js/jquery-3.1.0.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	 <link rel="stylesheet" href="dist/themes/default/style.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+  <script src="dist/jstree.min.js"></script>
+  <script src="dist/libs/jquery.js"></script>
+  <script>
+  $(function () {
+    // 6 create an instance when the DOM is ready
+    $('#jstree').jstree();
+    // 7 bind to events triggered on the tree
+    $('#jstree').on("changed.jstree", function (e, data) {
+      console.log(data.selected);
+    });
+    // 8 interact with the tree - either way is OK
+    $('button').on('click', function () {
+      $('#jstree').jstree(true).select_node('child_node_1');
+      $('#jstree').jstree('select_node', 'child_node_1');
+      $.jstree.reference('#jstree').select_node('child_node_1');
+    });
+  });
+  </script>
 	<script>
 $(document).ready(function(){
     $("button").click(function(){
@@ -21,44 +41,7 @@ $(document).ready(function(){
 </script>
 	<!-- Customize -->
 	<link rel="stylesheet" href="resource/css/style.css">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-				<title>jquery tree menu css slide up down</title>
-				<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
-				<script type="text/javascript">
-				$(function(){
- 				$('#tree-menu > li > a').click(function(){
- 				 var next = $(this).next();
-  				if(next.is(':visible')){
-   					next.slideUp(300);
-  					 $(this).find('span').jsp('+');
-						  }else{
- 						  next.slideDown(300);
-  					 $(this).find('span').jsp('-');
- 					 }
- 					});
-					});
-					</script>
 
-					<style type="text/css">
-					body { font:12px Tahoma, Geneva, sans-serif; }
-				#div-head-tree-menu { width:230px; padding:10px 10px 10px 10px; text-align:center; background-color:#ddd; border:1px solid #ccc; border-bottom:5px solid #a8bfd7; }
-				#div-tree-menu { padding-left:20px; padding-bottom:10px; width:230px; background-color:#eee; overflow:hidden; border:1px solid #aaa; border-top:1px solid #FFF;   }
-
-				#tree-menu {  width:200px; float:left; margin:0; padding:0; margin-top:-1px;}
-				#tree-menu ul { margin:0; padding:8px;  }
-				#tree-menu li { list-style:none;  padding:8px; margin:0; }
-
-				#menu-lv1 { display:none; }
-				#menu-lv2 { display:none; }
-				#menu-lv3 { display:none; }
-				#menu-lv4 { display:none; }
-
-				a:link { text-decoration: none; color: #00F; }
-				a:visited { text-decoration: none; color: #0CF; }
-				a:hover { text-decoration: none; color: #F60; }
-				a:active { text-decoration: none; color: #F00; }
-				.txt-red { color:#F00 }
-				</style>
 </head>
 <body>
 	<div id="wrapper">
@@ -103,47 +86,55 @@ $(document).ready(function(){
 <div class="row">
  		 <div class="col-md-4 ">
  		 			<!-- cay -->
-			<div id="div-head-tree-menu">: <a href="">Mục Minh Chứng</a> :</div>
-			<div id="div-tree-menu">
-			<ul id="tree-menu">
- 			<li><a href="#"><span>+</span>Minh Chứng 1</a>
-           <ul id="menu-lv1">
-            <li>&#8250; <a href="2chitietmaylocnuoc.jsp">Tên mục minh chứng</a></li>
-            <li>&#8250; <a href="#">Mô tả mục minh chứng</a></li>
-            <li>&#8250; <a href="#">File minh chứng </a></li>
-            <li>&#8250; <a href="#">Người cung cấp/nhập minh chứng</a></li>
-            <li>&#8250; <a href="#">Tên người tạo mục minh chứng</a></li>
-         </ul>
-     </li>
-    <li><a href="#"><span>+</span>Minh Chứng 2</a>
-         <ul id="menu-lv2">
-            <li>&#8250; <a href="2chitietdoantruong.jsp">Tên mục minh chứng</a></li>
-            <li>&#8250; <a href="#">Mô tả mục minh chứng</a></li>
-            <li>&#8250; <a href="#">File minh chứng</a></li>
-            <li>&#8250; <a href="#">Người cung cấp/nhập minh chứng</a></li>
-            <li>&#8250; <a href="#">Tên người tạo mục minh chứng</a></li>
-         </ul>
-     </li>
-       <li><a href="#"><span>+</span>Minh Chứng 3</a>
-        <ul id="menu-lv3">
-            <li>&#8250; <a href="2chitietkhutuhoc.jsp">Tên mục minh chứng</a></li>
-            <li>&#8250; <a href="#">Mô tả mục minh chứng</a></li>
-            <li>&#8250; <a href="#">File minh chứng</a></li>
-            <li>&#8250; <a href="#">Người cung cấp/nhập minh chứng</a></li>
-            <li>&#8250; <a href="#">Tên người tạo mục minh chứng</a></li>
-         </ul>
-        </li>
-     <li><a href="#"><span>+</span>Minh Chứng 4</a>
-      <ul id="menu-lv4">
-            <li>&#8250; <a href="2chitietsanbongro.jsp">Tên mục minh chứng</a></li>
-            <li>&#8250; <a href="#">Mô tả mục minh chứng</a></li>
-            <li>&#8250; <a href="#">File minh chứng</a></li>
-            <li>&#8250; <a href="#">Người cung cấp/nhập minh chứng</a></li>
-            <li>&#8250; <a href="#">Tên người tạo mục minh chứng</a></li>
+				 <div id="jstree">
+    <!-- in this example the tree is populated from inline HTML -->
+    <ul>
+      <li>Minh Chứng 1
+        <ul>
+          <li><a href="2chitietmaylocnuoc.jsp">Tên mục minh chứng</a></li>
+          <li><a href="#">Mô tả mục minh chứng</a></li>
+          <li><a href="#">File minh chứng </a></li>
+          <li><a href="#">Người cung cấp/nhập minh chứng </a></li>
+          <li><a href="#">Tên người tạo mục minh chứng </a></li>
         </ul>
-		 </li>
-		</ul>
-		</div>
+      </li>
+
+      <li>Minh Chứng 2
+        <ul>
+          <li><a href="2chitietdoantruong.jsp">Tên mục minh chứng</a></li>
+          <li><a href="#">Mô tả mục minh chứng</a></li>
+          <li><a href="#">File minh chứng</a></li>
+          <li><a href="#">Người cung cấp/nhập minh chứng </a></li>
+          <li><a href="#">Tên người tạo mục minh chứng </a></li>
+        </ul>
+      </li>
+
+      <li>Minh Chứng 3
+        <ul>
+           <li><a href="2chitietkhutuhoc.jsp">Tên mục minh chứng</a></li>
+            <li><a href="#">Mô tả mục minh chứng</a></li>
+            <li><a href="#">File minh chứng</a></li>
+            <li><a href="#">Người cung cấp/nhập minh chứng </a></li>
+            <li><a href="#">Tên người tạo mục minh chứng </a></li>
+        </ul>
+      </li>
+
+      <li>Minh Chứng 4
+        <ul>
+          <li>  <a href="2chitietsanbongro.jsp">Tên mục minh chứng</a></li>
+          <li> <a href="#">Mô tả mục minh chứng</a></li>
+          <li> <a href="#">File minh chứng </a></li>
+          <li><a href="#">Người cung cấp/nhập minh chứng </a></li>
+          <li><a href="">Tên người tạo mục minh chứng </a></li>
+        </ul>
+      </li>
+
+     
+
+
+     
+    </ul>
+  </div>
 		<!-- ket thuc cay -->
  </div>
  <div class="col-md-8">	
